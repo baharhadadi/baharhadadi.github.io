@@ -1,7 +1,8 @@
 title: Bahar Hadadi, PhD
 author: Fatemeh (Bahar) Hadadi
 url: https://baharhadadi.github.io/ # root address of the site
-description: > Welcome to the personal website of Dr. Bahar Hadadi. 
+description: "Welcome to the personal website of Dr. Bahar Hadadi."
+
 permalink: /:slug
 
 favicon: "./logo.png" # relative path to site's favicon
