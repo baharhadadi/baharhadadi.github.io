@@ -88,12 +88,37 @@
    * Hide mobile collapsable menu on clicking a link.
    * --------------------------------------------------------------------------- */
 
+  let $navbarToggle = $('.navbar-toggle');
+  let $navbarCollapse = $('.navbar-collapse');
+
+  function hasBootstrapCollapse() {
+    return typeof $.fn.collapse === 'function';
+  }
+
+  function setNavbarCollapsed(isOpen) {
+    $navbarCollapse.toggleClass('in', isOpen);
+    $navbarToggle.toggleClass('collapsed', !isOpen);
+    $navbarToggle.attr('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  $navbarToggle.on('click', function(event) {
+    if (hasBootstrapCollapse()) {
+      return;
+    }
+    event.preventDefault();
+    setNavbarCollapsed(!$navbarCollapse.hasClass('in'));
+  });
+
   $(document).on('click', '.navbar-collapse.in', function(e) {
     //get the <a> element that was clicked, even if the <span> element that is inside the <a> element is e.target
     let targetElement = $(e.target).is('a') ? $(e.target) : $(e.target).parent();
 
     if (targetElement.is('a') && targetElement.attr('class') != 'dropdown-toggle') {
-      $(this).collapse('hide');
+      if (hasBootstrapCollapse()) {
+        $(this).collapse('hide');
+      } else {
+        setNavbarCollapsed(false);
+      }
     }
   });
 
