@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Bahar Hadadi</title>
+    <link>https://baharhadadi.github.io/</link>
+    <description>PhD in Computer Science. Research on log analysis, anomaly detection, and LLMs for software systems.</description>
+    <language>en-us</language>
+
+    <!-- Homepage / About -->
+    <item>
+      <title>About — Dr. Bahar Hadadi</title>
+      <link>https://baharhadadi.github.io/#about</link>
+      <guid isPermaLink="true">https://baharhadadi.github.io/#about</guid>
+      <description>
+        PhD graduate in Computer Science from the University of Ottawa with research experience in ML-based failure prediction
+        and anomaly detection on software logs.
+      </description>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <!-- Selected Publications (from your homepage section) -->
+    <item>
+      <title>LLM meets ML: Data-efficient Anomaly Detection on Unstable Logs (TOSEM 2025)</title>
+      <link>https://baharhadadi.github.io/publication/tosem25/index.html</link>
+      <guid isPermaLink="true">https://baharhadadi.github.io/publication/tosem25/index.html</guid>
+      <description>
+        FlexLog: a hybrid ULAD approach combining ML models with an LLM (Mistral) via ensemble learning, with cache and RAG.
+      </description>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Anomaly Detection on Unstable Logs with GPT Models (arXiv 2024)</title>
+      <link>https://baharhadadi.github.io/publication/arvix24/index.html</link>
+      <guid isPermaLink="true">https://baharhadadi.github.io/publication/arvix24/index.html</guid>
+      <description>
+        Experimental comparison of fine-tuned LLMs and baselines for anomaly detection on unstable logs; prompt vs fine-tuning insights.
+      </description>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Systematic Evaluation of Deep Learning Models for Log-based Failure Prediction (EMSE 2024)</title>
+      <link>https://baharhadadi.github.io/publication/emse24/index.html</link>
+      <guid isPermaLink="true">https://baharhadadi.github.io/publication/emse24/index.html</guid>
+      <description>
+        Systematic study of embedding strategies and DL encoders (RNN/CNN/Transformer) for failure prediction; includes large-scale synthetic datasets.
+      </description>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <!-- Useful links -->
+    <item>
+      <title>Google Scholar — Publications</title>
+      <link>https://scholar.google.com/citations?user=OBUZixIAAAAJ&amp;hl=en</link>
+      <guid isPermaLink="true">https://scholar.google.com/citations?user=OBUZixIAAAAJ&amp;hl=en</guid>
+      <description>Full and up-to-date publication list on Google Scholar.</description>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>

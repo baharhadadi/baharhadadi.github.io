@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://baharhadadi.github.io/</loc>
+  </url>
+
+  <!-- Navigation pages -->
+  <url>
+    <loc>https://baharhadadi.github.io/publications.html</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/blog.html</loc>
+  </url>
+
+  <!-- Anchors (optional; fragments are usually not indexed separately) -->
+  <url>
+    <loc>https://baharhadadi.github.io/#about</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/#contact</loc>
+  </url>
+
+  <!-- Selected Publications (from index.html) -->
+  <url>
+    <loc>https://baharhadadi.github.io/publication/tosem25/</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/publication/tosem25/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/publication/arvix24/</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/publication/arvix24/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/publication/emse24/</loc>
+  </url>
+
+  <url>
+    <loc>https://baharhadadi.github.io/publication/emse24/index.html</loc>
+  </url>
+
+  <!-- RSS feed (optional but nice) -->
+  <url>
+    <loc>https://baharhadadi.github.io/index.xml</loc>
+  </url>
+
+</urlset>
