@@ -1136,6 +1136,10 @@ nav#navbar-main li {
     display: none !important;
   }
 
+  .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+
   .navbar-nav {
     float: none !important;
     margin-top: 7.5px;
