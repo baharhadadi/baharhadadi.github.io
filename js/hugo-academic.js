@@ -295,7 +295,7 @@
         layout = 'fitRows';
       }
 
-      $container.imagesLoaded(function() {
+      let initIsotope = function() {
         // Initialize Isotope after all images have loaded.
         $container.isotope({
           itemSelector: '.isotope-item',
@@ -309,7 +309,13 @@
           $(this).removeClass('active').addClass('active').siblings().removeClass('active all');
           return false;
         });
-      });
+      };
+
+      if ($.fn.imagesLoaded) {
+        $container.imagesLoaded(initIsotope);
+      } else {
+        initIsotope();
+      }
     });
 
     // Enable publication filter for publication index page.
