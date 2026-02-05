@@ -127,14 +127,16 @@
    * --------------------------------------------------------------------------- */
 
   let $grid_pubs = $('#container-publications');
-  $grid_pubs.isotope({
-    itemSelector: '.isotope-item',
-    percentPosition: true,
-    masonry: {
-      // Use Bootstrap compatible grid layout.
-      columnWidth: '.grid-sizer'
-    }
-  });
+  if ($.fn.isotope && $grid_pubs.length) {
+    $grid_pubs.isotope({
+      itemSelector: '.isotope-item',
+      percentPosition: true,
+      masonry: {
+        // Use Bootstrap compatible grid layout.
+        columnWidth: '.grid-sizer'
+      }
+    });
+  }
 
   // Active publication filters.
   let pubFilters = {};
@@ -149,6 +151,9 @@
   }
 
   $('.pub-filters').on( 'change', function() {
+    if (!$.fn.isotope) {
+      return;
+    }
     let $this = $(this);
 
     // Get group key.
@@ -161,7 +166,9 @@
     let filterValues = concatValues( pubFilters );
 
     // Activate filters.
-    $grid_pubs.isotope({ filter: filterValues });
+    if ($grid_pubs.length) {
+      $grid_pubs.isotope({ filter: filterValues });
+    }
 
     // If filtering by publication type, update the URL hash to enable direct linking to results.
     if (filterGroup == "pubtype") {
@@ -177,6 +184,9 @@
 
   // Filter publications according to hash in URL.
   function filter_publications() {
+    if (!$.fn.isotope || !$grid_pubs.length) {
+      return;
+    }
     let urlHash = window.location.hash.replace('#','');
     let filterValue = '*';
 
@@ -296,6 +306,9 @@
       }
 
       let initIsotope = function() {
+        if (!$.fn.isotope) {
+          return;
+        }
         // Initialize Isotope after all images have loaded.
         $container.isotope({
           itemSelector: '.isotope-item',
@@ -319,7 +332,7 @@
     });
 
     // Enable publication filter for publication index page.
-    if ($('.pub-filters-select')) {
+    if ($('.pub-filters-select').length) {
       filter_publications();
       // Useful for changing hash manually (e.g. in development):
       // window.addEventListener('hashchange', filter_publications, false);
