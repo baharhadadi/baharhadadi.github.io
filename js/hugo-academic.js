@@ -3,6 +3,34 @@
  *  https://github.com/gcushen/hugo-academic
  **************************************************/
 
+// Vanilla JS fallback for mobile navbar toggle (works without Bootstrap JS).
+(function() {
+  function initNavbarToggle() {
+    if (window.jQuery && jQuery.fn.collapse) { return; }
+    var toggleBtn = document.querySelector('.navbar-toggle');
+    var navCollapse = document.querySelector('.navbar-collapse');
+    if (!toggleBtn || !navCollapse) { return; }
+    toggleBtn.addEventListener('click', function() {
+      // 'in' is Bootstrap 3's open-state class; Bootstrap 4+ uses 'show'.
+      var isOpen = navCollapse.classList.contains('in');
+      if (isOpen) {
+        navCollapse.classList.remove('in');
+        toggleBtn.classList.add('collapsed');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        navCollapse.classList.add('in');
+        toggleBtn.classList.remove('collapsed');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbarToggle);
+  } else {
+    initNavbarToggle();
+  }
+})();
+
 (function($){
 
   /* ---------------------------------------------------------------------------
