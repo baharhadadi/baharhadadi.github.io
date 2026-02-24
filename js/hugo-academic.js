@@ -299,34 +299,52 @@
       e.preventDefault();
       let filename = $(this).attr('data-filename');
       let modal = $('#modal');
-      modal.find('.modal-body').load( filename , function( response, status, xhr ) {
-        if ( status == 'error' ) {
-          let msg = "Error: ";
-          $('#modal-error').html( msg + xhr.status + " " + xhr.statusText );
-        } else {
+      modal.find('#modal-error').html('');
+      fetch(filename)
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('HTTP ' + response.status + ' ' + response.statusText);
+          }
+          return response.text();
+        })
+        .then(function(text) {
+          modal.find('.modal-body pre code').text(text);
           $('.js-download-cite').attr('href', filename);
-        }
-      });
-      modal.modal('show');
+          modal.modal('show');
+        })
+        .catch(function(err) {
+          modal.find('#modal-error').html('Error loading citation: ' + err.message);
+          modal.modal('show');
+        });
     });
 
     // Copy citation text on 'Copy' click.
     $('.js-copy-cite').click(function(e) {
       e.preventDefault();
-      // Get selection.
-      let range = document.createRange();
-      let code_node = document.querySelector('#modal .modal-body');
-      range.selectNode(code_node);
-      window.getSelection().addRange(range);
+      let text = $('#modal .modal-body pre code').text();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(function() {
+          fallbackCopyText(text);
+        });
+      } else {
+        fallbackCopyText(text);
+      }
+    });
+
+    function fallbackCopyText(text) {
+      let textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
       try {
-        // Execute the copy command.
         document.execCommand('copy');
-      } catch(e) {
+      } catch(err) {
         console.log('Error: citation copy failed.');
       }
-      // Remove selection.
-      window.getSelection().removeRange(range);
-    });
+      document.body.removeChild(textarea);
+    }
 
     // Initialise Google Maps if necessary.
     initMap();
